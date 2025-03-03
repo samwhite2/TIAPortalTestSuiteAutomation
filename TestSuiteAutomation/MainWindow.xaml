@@ -1,0 +1,128 @@
+﻿<Window x:Class="TestSuiteAutomation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestSuiteAutomation"
+        mc:Ignorable="d"
+        Title="TestSuite Automation" Height="750" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
+        WindowStyle="ThreeDBorderWindow"
+        Icon="C:\Users\white.sam\source\repos\TestSuiteAutomation\TestSuiteAutomation\bin\Debug\AILogo.png">
+    <Window.Background>
+        <SolidColorBrush>
+            <SolidColorBrush.Color>
+                <Color 
+                    A="255" R="40" G="40" B="40">
+                </Color>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+    </Window.Background>
+
+    <Window.Resources>
+        <!-- Button Style-->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#4A4A4A"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderBrush" Value="#6C6C6C"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- TextBox Style-->
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#414141"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderBrush" Value="#6C6C6C"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <!-- ListBox Style-->
+        <Style TargetType="ListBox">
+            <Setter Property="Background" Value="#414141"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderBrush" Value="#6C6C6C"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <!-- TabItem Style-->
+        <Style TargetType="TabItem">
+            <Setter Property="Background" Value= "#4A4A4A"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#6C6C6C"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="4">
+                                <ContentPresenter x:Name="Header" ContentSource="Header" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <TabControl Background="#282828">
+            <!-- Home Page -->
+            <TabItem Header="Home" Width="55">
+                <StackPanel Margin="20">
+                    <TextBlock FontSize="24" FontWeight="Bold" Margin="0 0 0 20" Foreground="WhiteSmoke">TIA Portal Test Suite Automation Tool</TextBlock>
+                </StackPanel>
+            </TabItem>
+
+            <!-- Project Page -->
+            <TabItem Header="Project" Width="55">
+                <StackPanel Margin="20">
+                    <TextBlock FontSize="18" Margin="0 0 0 10" Foreground="WhiteSmoke">Project Configuration</TextBlock>
+                    <TextBlock Margin="0 10 0 5" FontSize="14" Foreground="WhiteSmoke">Project Path:</TextBlock>
+                    <TextBox Width="400" x:Name="tbProjectPath" FontSize="11"/>
+                    <Button x:Name="btnConnectToTIA" Content="Connect to TIA" Width="150" Click="btnConnectToTIA_Click"/>
+                    <TextBlock Margin="0 10 0 5" FontSize="14" Foreground="WhiteSmoke">Function Under Test:</TextBlock>
+                    <TextBox Width="400" x:Name="tbFunctionName" FontSize="11"/>
+                    <TextBlock Margin="0 10 0 5" FontSize="14" Foreground="WhiteSmoke">iDB Name:</TextBlock>
+                    <TextBox Width="400" x:Name="tbIDBName" FontSize="11"/>
+                    <Button x:Name="btnGenerateAndImportOB" Content="Generate Blocks" Width="150" Click="btnGenerateAndImportOB_Click"/>
+                    <ListBox x:Name="lbImportMessage" Height="315" Margin="0 10 0 0"/>
+                </StackPanel>
+            </TabItem>
+
+            <!-- Testing Page -->
+            <TabItem Header="Testing" Width="55">
+                <StackPanel Margin="20">
+                    <TextBlock FontSize="18" Margin="0 0 0 10" Foreground="WhiteSmoke">Test Execution</TextBlock>
+                    <TextBlock Margin="0 10 0 5" FontSize="14" Foreground="WhiteSmoke">Test Case:</TextBlock>
+                    <TextBox Width="400" x:Name="tbTestCase" FontSize="11"/>
+                    <Button x:Name="btnRunTest" Content="Run Test" Width="150" Click="btnRunTest_Click"/>
+                    <TextBlock Margin="0 10 0 5" FontSize="14" Foreground="WhiteSmoke">Test Case Path:</TextBlock>
+                    <TextBox Width="400" x:Name="tbTestCasePath" FontSize="11"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="btnImportTest" Content="Import Tests" Width="100" Click="btnImportTest_Click"/>
+                        <Button x:Name="btnExportTest" Content="Export Tests" Width="100" Click="btnExportTest_Click"/>
+                    </StackPanel>
+                    <Button x:Name="btnRunAllTests" Content="Run All Tests" Width="150" Click="btnRunAllTests_Click"/>
+                    <TextBlock Margin="0 10 0 5" FontSize="14" Foreground="WhiteSmoke">Scope:</TextBlock>
+                    <TextBox Width="400" x:Name="tbTestCaseScope" FontSize="11"/>
+                    <ListBox x:Name="lbMessage" Height="300" Margin="0 10 0 0"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
