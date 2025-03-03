@@ -27,7 +27,9 @@ This WPF Application is used to assist the automation of Test Suite in TIA Porta
 
 3. Restore the NuGet packages.
 
-4. Build the solution.
+4. Update **outputPath** on line 491 to your desired file path.
+
+5. Build the solution.
 
 ## Usage
 
