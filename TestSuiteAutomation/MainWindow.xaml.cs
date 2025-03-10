@@ -1,28 +1,4 @@
-﻿/**************************************************************************************************
-                                    Applied Integration
----------------------------------------------------------------------------------------------------
-Module Name: TIA Portal Test Suite Automation
-
-Description: 
-This WPF Application is used to assist the automation of Test Suite in TIA Portal. 
-The function is used to:
-
-    - Connect to TIA Portal Project
-    - Open Selected TIA Portal Project
-    - Import TestCases from .tat file into TIA Portal Project
-    - Save TestCases to .tat file
-    - Run Single TestCase
-    - Run All TestCases
-    - Write Test Results to a ListBox
-
----------------------------------------------------------------------------------------------------
- 
- Version History
- Date          Engineer      Description
- 19/02/2025    SW            Initial Release
-***************************************************************************************************/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:TestSuiteAutomation"
         mc:Ignorable="d"
         Title="TestSuite Automation" Height="750" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
-        WindowStyle="ThreeDBorderWindow"
-        Icon="C:\Users\white.sam\source\repos\TestSuiteAutomation\TestSuiteAutomation\bin\Debug\AILogo.png">
+        WindowStyle="ThreeDBorderWindow">
     <Window.Background>
         <SolidColorBrush>
             <SolidColorBrush.Color>
